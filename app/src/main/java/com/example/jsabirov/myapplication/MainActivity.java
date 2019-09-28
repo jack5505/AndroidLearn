@@ -6,13 +6,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.ContextMenu;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.view.*;
+import android.widget.*;
+
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnCreateContextMenuListener {
     final int MENU_COLOR_RED = 1;
@@ -23,7 +20,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     final int MENU_SIZE_26 = 5;
     final int MENU_SIZE_30 = 6;
     TextView color,size;
-
+    RadioGroup orient;
+    LinearLayout mainLayout;
+    TextView textView;
+    int wrapContent = WRAP_CONTENT;
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -44,15 +44,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test3);
-      //  EditText text = findViewById(R.id.editText2);
-        //TextView show = findViewById(R.id.textView);
-//        Button btn = findViewById(R.id.button);
-//        Button bt = findViewById(R.id.button5);
-         this.color = findViewById(R.id.contextMenu);
-         this.size = findViewById(R.id.contextmenu1);
-         registerForContextMenu(color);
-         registerForContextMenu(size);
+        setContentView(R.layout.test4);
+        Button create = findViewById(R.id.create);
+        Button delet = findViewById(R.id.clean);
+        this.orient = findViewById(R.id.orientation);
+        this.textView = findViewById(R.id.name);
+        this.mainLayout = findViewById(R.id.mainLayout);
+        create.setOnClickListener(this);
+        delet.setOnClickListener(this);
+        //setContentView(R.layout.test3);
+//         this.color = findViewById(R.id.contextMenu);
+//         this.size = findViewById(R.id.contextmenu1);
+//         registerForContextMenu(color);
+//         registerForContextMenu(size);
 //        this.onClick(btn);
 //        this.onClick(bt);
         /*
@@ -125,8 +129,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-            if(view.getId() == R.id.button){
+            if(view.getId() == R.id.create){
 
+                LinearLayout.LayoutParams lParams = new LinearLayout.LayoutParams(
+                        wrapContent, wrapContent);
+                int gravity = Gravity.LEFT;
+                switch (orient.getCheckedRadioButtonId()){
+
+                    case R.id.rbcenter:
+                        System.out.println("center");
+                        gravity = Gravity.CENTER_HORIZONTAL;
+                        break;
+                    case R.id.rbleft:
+                        System.out.println("LEFT");
+                        gravity = Gravity.LEFT;
+                        break;
+                    case R.id.rbright:
+                        System.out.println("RIGHT");
+                        gravity = Gravity.RIGHT;
+                        break;
+                }
+                lParams.gravity = gravity;
+                Button button = new Button(this);
+                button.setText(textView.getText());
+                mainLayout.addView(button,lParams);
+            }else if(view.getId() == R.id.clean){
+                mainLayout.removeAllViews();
+                Toast.makeText(this,"O`chirildi",Toast.LENGTH_LONG).show();
             }
     }
 }
