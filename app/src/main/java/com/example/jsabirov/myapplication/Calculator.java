@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,6 +35,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.myrotate);
         if(!input1.getText().toString().isEmpty() && !input2.getText().toString().isEmpty()){
             first = second = result = 0;
             first = Float.parseFloat(input1.getText().toString());
@@ -55,6 +58,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                     show.setText(first+" / " + second+"="+result);
                     break;
             }
+            show.setAnimation(animation);
 
         }
 
