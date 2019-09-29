@@ -11,7 +11,7 @@ import android.widget.*;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnCreateContextMenuListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnCreateContextMenuListener, AdapterView.OnItemClickListener {
     final int MENU_COLOR_RED = 1;
     final int MENU_COLOR_GREEN = 2;
     final int MENU_COLOR_BLUE = 3;
@@ -45,13 +45,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test4);
-        Button create = findViewById(R.id.create);
-        Button delet = findViewById(R.id.clean);
-        this.orient = findViewById(R.id.orientation);
-        this.textView = findViewById(R.id.name);
-        this.mainLayout = findViewById(R.id.mainLayout);
-        create.setOnClickListener(this);
-        delet.setOnClickListener(this);
+//        Button create = findViewById(R.id.create);
+//        Button delet = findViewById(R.id.clean);
+//        this.orient = findViewById(R.id.orientation);
+//        this.textView = findViewById(R.id.name);
+//        this.mainLayout = findViewById(R.id.mainLayout);
+//        create.setOnClickListener(this);
+//        delet.setOnClickListener(this);
         //setContentView(R.layout.test3);
 //         this.color = findViewById(R.id.contextMenu);
 //         this.size = findViewById(R.id.contextmenu1);
@@ -157,5 +157,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mainLayout.removeAllViews();
                 Toast.makeText(this,"O`chirildi",Toast.LENGTH_LONG).show();
             }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        System.out.println("CLICKED");;
     }
 }

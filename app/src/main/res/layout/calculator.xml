@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_width="75dp"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:ems="10"
+                    android:id="@+id/input1" android:layout_weight="1"/>
+            <EditText
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_width="75dp"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:ems="10"
+                    android:id="@+id/input2" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Button
+                    android:text="+"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:id="@+id/add" android:layout_weight="1"/>
+            <Button
+                    android:text="-"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:id="@+id/subtract" android:layout_weight="1"/>
+            <Button
+                    android:text="*"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:id="@+id/multiply" android:layout_weight="1"/>
+            <Button
+                    android:text="/"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:id="@+id/divide" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:layout_marginTop="50dp"
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/show" android:layout_weight="1"
+                    android:textSize="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
