@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Main3Activity">
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/login"/>
+        <EditText
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/password"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Button
+                    android:layout_marginLeft="20dp"
+                    android:text="Login"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/ok"
+                    android:layout_weight="1"/>
+            <Button
+                    android:layout_marginRight="20dp"
+                    android:text="Cancel"
+                    android:layout_width="25dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/cancel"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
