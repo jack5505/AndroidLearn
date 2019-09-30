@@ -7,21 +7,23 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
 
+    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Intent intent = getIntent();
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(intent.getStringExtra("first")+" "+intent.getStringExtra("second"));
-
-
+//        Intent intent = getIntent();
+        textView = findViewById(R.id.textView);
+//        textView.setText(intent.getStringExtra("first")+" "+intent.getStringExtra("second"));
+        Button btn = findViewById(R.id.upload);
+        btn.setOnClickListener(this);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,5 +56,20 @@ public class Main2Activity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         System.out.println("Destroyed second Activity");
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this,Main3Activity.class);
+        startActivityForResult(intent,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data == null)
+            return;
+        System.out.println("Name: "+data.getStringExtra("full"));
+        textView.setText(data.getStringExtra("full"));
     }
 }

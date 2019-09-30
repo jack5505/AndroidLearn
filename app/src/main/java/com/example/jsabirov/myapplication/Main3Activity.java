@@ -35,10 +35,10 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
             editText1.setText("");
             break;
             case R.id.ok:
-                Intent intent = new Intent(this,Main2Activity.class);
-                intent.putExtra("first",editText.getText().toString());
-                intent.putExtra("second",editText1.getText().toString());
-                startActivity(intent);
+                Intent intent = new Intent();
+                intent.putExtra("full",editText.getText().toString()+" "+editText1.getText().toString());
+                setResult(RESULT_OK,intent);
+                finish();
         }
     }
 }
